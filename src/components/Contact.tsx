@@ -10,8 +10,18 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+
+    // Construct the mailto link
+    const subject = encodeURIComponent(`New Contact from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+
+    // Replace with your email
+    window.location.href = `mailto:abhishekmishra15102001@gmail.com?subject=${subject}&body=${body}`;
+
+    // Optionally reset form
+    setFormData({ name: '', email: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,6 +40,7 @@ const Contact = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Side Info */}
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
               <p className="text-gray-300 mb-8 text-lg leading-relaxed">
@@ -70,6 +81,7 @@ const Contact = () => {
                 </div>
               </div>
               
+              {/* Social Links */}
               <div className="flex space-x-4 mt-8">
                 <a
                   href="https://linkedin.com/in/abhishek-mishra-14b538221"
@@ -106,6 +118,7 @@ const Contact = () => {
               </div>
             </div>
             
+            {/* Right Side Form */}
             <div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -158,7 +171,7 @@ const Contact = () => {
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-2 text-white"
                 >
                   <Send size={18} />
                   <span>Send Message</span>
