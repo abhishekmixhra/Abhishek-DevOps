@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Target, Zap } from 'lucide-react';
+import abhImage from "../image/abhi.jpeg"
 
 const About = () => {
   return (
@@ -16,7 +17,8 @@ const About = () => {
               <div className="relative max-w-sm mx-auto">
                 <div className="aspect-square rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20">
                   <img
-                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=500"
+                  src={abhImage}
+                    // src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=500"
                     alt="DevOps Engineer Profile"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
