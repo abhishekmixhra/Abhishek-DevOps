@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github, Zap, Shield, Cloud } from 'lucide-react';
+import { Github, Zap, Shield, Cloud } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -101,6 +101,8 @@ const Projects = () => {
                   ))}
                 </div>
                 
+                {/* Buttons commented for now */}
+                {/*
                 <div className="flex space-x-4">
                   <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-300">
                     <Github size={16} />
@@ -108,9 +110,10 @@ const Projects = () => {
                   </button>
                   <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300">
                     <ExternalLink size={16} />
-                    <span className="text-sm">Demo</span>
+                    <span className="text-sm">Demo</span> 
                   </button>
                 </div>
+                */}
               </div>
             ))}
           </div>
