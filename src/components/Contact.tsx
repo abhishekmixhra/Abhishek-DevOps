@@ -174,7 +174,7 @@ const Contact = () => {
                   className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-2 text-white"
                 >
                   <Send size={18} />
-                  <span>Send Message</span>
+                  <span>Mail Me</span>
                 </button>
               </form>
             </div>
