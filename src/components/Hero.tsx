@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-white to-emerald-400 bg-clip-text text-transparent animate-fade-in">
-            Abhishek Mishra
+           Hey, I'm Abhishek Mishra 👋 
           </h1>
           <div className="mb-8 animate-fade-in-delay-1">
             <p className="text-2xl md:text-3xl font-semibold text-white mb-2">
-              DevOps Engineer
+              DevOps Engineer & Cloud Enthusiast
             </p>
             <p className="text-lg md:text-xl text-gray-300">
               Specializing in AWS cloud infrastructure, CI/CD automation, and scalable solutions
