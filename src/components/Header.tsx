@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-gray-900/95 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
+      isScrolled ? 'bg-gray-900/95 backdrop-blur-sm border-b border-gray-800' : 'md:bg-transparent bg-gray-900/95 backdrop-blur-sm border-b border-gray-800'
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
@@ -56,7 +56,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="md:hidden  mt-4 pb-4">
             {navItems.map((item) => (
               <a
                 key={item.href}

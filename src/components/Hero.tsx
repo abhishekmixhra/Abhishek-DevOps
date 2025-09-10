@@ -3,15 +3,20 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="relative flex items-center justify-center min-h-screen overflow-hidden pt-20 pb-28"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-gray-900 to-emerald-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1)_0%,transparent_50%)]"></div>
-      
+      <div className="absolute inset-0 -z-10">
+        <div className="w-full h-full bg-gradient-to-br from-blue-900/20 via-gray-900 to-emerald-900/20"></div>
+        <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1)_0%,transparent_50%)]"></div>
+      </div>
+
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-white to-emerald-400 bg-clip-text text-transparent animate-fade-in">
-           Hey, I'm Abhishek Mishra 👋 
+            Hey, I'm Abhishek Mishra 👋
           </h1>
           <div className="mb-8 animate-fade-in-delay-1">
             <p className="text-2xl md:text-3xl font-semibold text-white mb-2">
@@ -22,10 +27,11 @@ const Hero = () => {
             </p>
           </div>
           <p className="text-base md:text-lg text-gray-400 mb-12 animate-fade-in-delay-2 max-w-3xl mx-auto leading-relaxed">
-            Passionate about automating infrastructure, optimizing cloud architectures, and delivering reliable production systems. 
-            Currently driving digital transformation at Appsquadz Software with expertise in AWS, Kubernetes, and modern DevOps practices.
+            Passionate about automating infrastructure, optimizing cloud architectures, and delivering reliable
+            production systems. Currently driving digital transformation at Appsquadz Software with expertise
+            in AWS, Kubernetes, and modern DevOps practices.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-3">
             <a
               href="#projects"
@@ -44,7 +50,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="text-gray-400" size={32} />
       </div>
     </section>
