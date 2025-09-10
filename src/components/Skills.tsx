@@ -1,29 +1,145 @@
-import React from 'react';
-import { Cpu, Cloud, Code, Database, Shield } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Cloud, Shield, GitBranch, Container 
+} from 'lucide-react';
 
 const Skills = () => {
-  const skills = [
-    { name: "AWS Cloud", icon: <Cloud size={28} className="text-blue-400" /> },
-    { name: "Kubernetes", icon: <Cpu size={28} className="text-emerald-400" /> },
-    { name: "Docker", icon: <Code size={28} className="text-purple-400" /> },
-    { name: "CI/CD (GitHub Actions)", icon: <Database size={28} className="text-orange-400" /> },
-    { name: "Security & Monitoring", icon: <Shield size={28} className="text-red-400" /> },
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  const skillCategories = [
+    {
+      title: "Cloud Platforms",
+      icon: <Cloud size={28} className="text-blue-400" />,
+      skills: [
+        { name: "AWS", level: 95, color: "from-orange-500 to-yellow-500" },
+        { name: "GCP", level: 80, color: "from-blue-500 to-cyan-500" },
+        { name: "Azure", level: 70, color: "from-blue-600 to-purple-500" }
+      ]
+    },
+    {
+      title: "Containers & Orchestration", 
+      icon: <Container size={28} className="text-purple-400" />,
+      skills: [
+        { name: "Docker", level: 90, color: "from-blue-500 to-blue-700" },
+        { name: "Kubernetes", level: 88, color: "from-blue-600 to-cyan-600" },
+        { name: "EKS/GKE", level: 85, color: "from-emerald-500 to-teal-500" }
+      ]
+    },
+    {
+      title: "CI/CD & Automation",
+      icon: <GitBranch size={28} className="text-emerald-400" />,
+      skills: [
+        { name: "GitHub Actions", level: 92, color: "from-gray-700 to-gray-900" },
+        { name: "Jenkins", level: 80, color: "from-blue-500 to-indigo-600" },
+        { name: "Terraform", level: 87, color: "from-purple-500 to-pink-500" }
+      ]
+    },
+    {
+      title: "Monitoring & Security",
+      icon: <Shield size={28} className="text-red-400" />,
+      skills: [
+        { name: "Prometheus", level: 85, color: "from-orange-500 to-red-500" },
+        { name: "SonarQube", level: 82, color: "from-blue-500 to-teal-500" },
+        { name: "AWS Security", level: 90, color: "from-red-500 to-orange-500" }
+      ]
+    }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="py-20 bg-gray-900 scroll-mt-20">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-          My Skills
-        </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          {skills.map((skill, index) => (
+    <section ref={sectionRef} id="skills" className="py-20 bg-gray-900 scroll-mt-20">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-mono text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/30">
+              ⚙️ Technical Expertise
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Skills & <span className="text-gradient-blue">Technologies</span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Full-stack DevOps expertise from 
+            <span className="text-gradient-emerald font-semibold">cloud infrastructure</span> to 
+            <span className="text-gradient-blue font-semibold">deployment automation</span>
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-6 mb-16">
+          {skillCategories.map((category, categoryIndex) => (
+            <div
+              key={categoryIndex}
+              className="interactive-card modern-blur p-6 rounded-2xl border border-gray-700/30 hover:border-blue-500/50 transition-all duration-500 glow-on-hover"
+            >
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl mr-4 tech-icon">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+              </div>
+              
+              <div className="space-y-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <div key={skillIndex} className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                      <span className="text-xs font-mono text-blue-400 bg-blue-400/10 px-2 py-1 rounded">
+                        {isVisible ? skill.level : 0}%
+                      </span>
+                    </div>
+                    
+                    <div className="h-2 bg-gray-800/50 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative`}
+                        style={{
+                          width: isVisible ? `${skill.level}%` : '0%',
+                          transitionDelay: `${(categoryIndex * 3 + skillIndex) * 0.2}s`
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Achievement Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { value: "3+", label: "Years Experience", icon: "⏰" },
+            { value: "50+", label: "Projects Completed", icon: "🚀" },
+            { value: "10+", label: "AWS Services", icon: "☁️" },
+            { value: "100%", label: "Client Satisfaction", icon: "⭐" }
+          ].map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-6 bg-gray-800/50 rounded-lg border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="text-center p-6 glass-effect rounded-xl border border-gray-700/30 hover:border-emerald-500/50 transition-all duration-300 hover-glow"
             >
-              {skill.icon}
-              <h3 className="mt-4 text-lg font-semibold text-white">{skill.name}</h3>
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
             </div>
           ))}
         </div>

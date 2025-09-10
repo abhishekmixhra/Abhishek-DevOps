@@ -19,88 +19,138 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-800/50 scroll-mt-20">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-          Let's Connect
-        </h2>
+    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-mono text-purple-400 bg-purple-400/10 px-3 py-1 rounded-full border border-purple-400/30">
+              💬 Get In Touch
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Ready to <span className="text-gradient-blue">collaborate</span>?
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Let's discuss your next project or explore opportunities to work together
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Side */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
-            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              I'm always interested in discussing new opportunities, innovative projects,
-              and ways to improve workflows. Let's connect!
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-600/20 rounded-lg border border-blue-600/30">
-                  <Mail className="text-blue-400" size={20} />
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Contact Info */}
+          <div className="lg:col-span-1">
+            <div className="modern-blur p-6 rounded-2xl border border-gray-700/30 h-fit">
+              <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
+              
+              <div className="space-y-4">
+                <div className="interactive-card p-4 rounded-xl border border-blue-600/30 hover:border-blue-500/60 transition-all duration-300">
+                  <div className="flex items-start space-x-3">
+                    <Mail className="text-blue-400 mt-1 tech-icon" size={18} />
+                    <div>
+                      <p className="text-white font-semibold text-sm">Email</p>
+                      <p className="text-gray-400 text-sm">abhishekmishra15102001@gmail.com</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-semibold">Email</p>
-                  <p className="text-gray-300">abhishekmishra15102001@gmail.com</p>
+                
+                <div className="interactive-card p-4 rounded-xl border border-emerald-600/30 hover:border-emerald-500/60 transition-all duration-300">
+                  <div className="flex items-start space-x-3">
+                    <Phone className="text-emerald-400 mt-1 tech-icon" size={18} />
+                    <div>
+                      <p className="text-white font-semibold text-sm">Phone</p>
+                      <p className="text-gray-400 text-sm">+91 79050 68878</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="interactive-card p-4 rounded-xl border border-orange-600/30 hover:border-orange-500/60 transition-all duration-300">
+                  <div className="flex items-start space-x-3">
+                    <MapPin className="text-orange-400 mt-1 tech-icon" size={18} />
+                    <div>
+                      <p className="text-white font-semibold text-sm">Location</p>
+                      <p className="text-gray-400 text-sm">Remote • Global</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-emerald-600/20 rounded-lg border border-emerald-600/30">
-                  <Phone className="text-emerald-400" size={20} />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Phone</p>
-                  <p className="text-gray-300">+917905068878, +917266969451</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-orange-600/20 rounded-lg border border-orange-600/30">
-                  <MapPin className="text-orange-400" size={20} />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Location</p>
-                  <p className="text-gray-300">Available Remotely</p>
-                </div>
-              </div>
-            </div>
 
-            {/* Social Links */}
-            <div className="flex space-x-4 mt-8">
-              <a href="https://linkedin.com/in/abhishek-mishra-14b538221" className="p-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
-                <Linkedin size={20} />
-              </a>
-              <a href="https://github.com/abhishekmixhra" className="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
-                <Github size={20} />
-              </a>
-              <a href="https://instagram.com/abhishekmishra6121" className="p-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-lg transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
-                <Instagram size={20} />
-              </a>
-              <a href="https://youtube.com/channel/UCy5pB_taMNCPe7mssaBF56A" className="p-3 bg-red-600 hover:bg-red-700 rounded-lg transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
-                <Youtube size={20} />
-              </a>
+              {/* Social Links */}
+              <div className="mt-6">
+                <p className="text-white font-semibold text-sm mb-3">Connect with me</p>
+                <div className="flex space-x-3">
+                  <a href="https://linkedin.com/in/abhishek-mishra-14b538221" className="interactive-card p-2 bg-blue-600/20 hover:bg-blue-600 rounded-lg transition-all duration-300 border border-blue-600/30" target="_blank" rel="noopener noreferrer">
+                    <Linkedin size={16} className="text-blue-400" />
+                  </a>
+                  <a href="https://github.com/abhishekmixhra" className="interactive-card p-2 bg-gray-700/20 hover:bg-gray-700 rounded-lg transition-all duration-300 border border-gray-600/30" target="_blank" rel="noopener noreferrer">
+                    <Github size={16} className="text-gray-400" />
+                  </a>
+                  <a href="https://instagram.com/abhishekmishra6121" className="interactive-card p-2 bg-pink-600/20 hover:bg-pink-600 rounded-lg transition-all duration-300 border border-pink-600/30" target="_blank" rel="noopener noreferrer">
+                    <Instagram size={16} className="text-pink-400" />
+                  </a>
+                  <a href="https://youtube.com/channel/UCy5pB_taMNCPe7mssaBF56A" className="interactive-card p-2 bg-red-600/20 hover:bg-red-600 rounded-lg transition-all duration-300 border border-red-600/30" target="_blank" rel="noopener noreferrer">
+                    <Youtube size={16} className="text-red-400" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Side Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg focus:border-blue-500 text-white" placeholder="Your Name" />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg focus:border-blue-500 text-white" placeholder="your.email@example.com" />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg focus:border-blue-500 text-white resize-none" placeholder="Tell me about your project..." />
-              </div>
-              <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:scale-105 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-white flex items-center justify-center space-x-2">
-                <Send size={18} />
-                <span>Mail Me</span>
-              </button>
-            </form>
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="modern-blur p-8 rounded-2xl border border-gray-700/30">
+              <h3 className="text-xl font-bold text-white mb-6">Send me a message</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      value={formData.name} 
+                      onChange={handleChange} 
+                      required 
+                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 transition-all duration-300" 
+                      placeholder="Abhishek Mishra" 
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      value={formData.email} 
+                      onChange={handleChange} 
+                      required 
+                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 transition-all duration-300" 
+                      placeholder="ab@example.com" 
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    value={formData.message} 
+                    onChange={handleChange} 
+                    required 
+                    rows={6} 
+                    className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 resize-none transition-all duration-300" 
+                    placeholder="Tell me about your project, collaboration ideas, or just say hello..."
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  className="interactive-card w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 px-8 py-4 rounded-xl font-semibold transition-all duration-300 text-white glow-on-hover"
+                >
+                  <div className="flex items-center justify-center space-x-3">
+                    <Send size={18} />
+                    <span>Mail me</span>
+                  </div>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -1,157 +1,208 @@
-import React from 'react';
-import { User, Target, Zap } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Zap, Calendar, Award, Users, MapPin } from 'lucide-react';
 import abhImage from "../image/abhi.jpeg"
 
 const About = () => {
-  return (
-    <section id="about" className="py-20 bg-gray-800/50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-            About Me
-          </h2>
+  const [statsVisible, setStatsVisible] = useState(false);
+  const statsRef = useRef(null);
+  const [counters, setCounters] = useState({
+    experience: 0,
+    projects: 0,
+    clients: 0,
+    certifications: 0
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (statsVisible) {
+      const finalStats = {
+        experience: 3,
+        projects: 50,
+        clients: 100,
+        certifications: 5
+      };
+      
+      const animateCounters = () => {
+        Object.keys(finalStats).forEach(key => {
+          const target = finalStats[key];
+          const increment = target / 50;
+          let current = 0;
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
-            <div className="order-2 md:order-1">
-              <div className="relative max-w-sm mx-auto">
-                <div className="aspect-square rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20">
-                  <img
-                  src={abhImage}
-                    // src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=500"
-                    alt="DevOps Engineer Profile"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-orange-500/20 rounded-full blur-xl"></div>
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            setCounters(prev => ({ ...prev, [key]: Math.floor(current) }));
+          }, 30);
+        });
+      };
+      
+      animateCounters();
+    }
+  }, [statsVisible]);
+
+  return (
+    <section id="about" className="py-20 bg-gradient-to-b from-gray-800/50 to-gray-900/50">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            👨‍💻 About Me
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Transforming complex infrastructure challenges into elegant, scalable solutions
+          </p>
+        </div>
+          
+        {/* Stats Section */}
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {[
+            { key: 'experience', value: counters.experience, label: 'Years Experience', suffix: '+', icon: Calendar, color: 'text-blue-400' },
+            { key: 'projects', value: counters.projects, label: 'Projects Completed', suffix: '+', icon: Award, color: 'text-emerald-400' },
+            { key: 'clients', value: counters.clients, label: 'Client Satisfaction', suffix: '%', icon: Users, color: 'text-orange-400' },
+            { key: 'certifications', value: counters.certifications, label: 'Certifications', suffix: '+', icon: Zap, color: 'text-purple-400' }
+          ].map((stat) => (
+            <div key={stat.key} className="text-center p-6 glass-effect-strong rounded-2xl border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300 card-hover">
+              <stat.icon className={`${stat.color} mx-auto mb-4`} size={32} />
+              <div className="text-3xl font-bold text-white mb-2">
+                {stat.value}{stat.suffix}
               </div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
             </div>
-            
-            <div className="order-1 md:order-2">
-              <div className="mb-6">
-                <h3 className="text-2xl font-semibold text-white mb-4">Hello, I'm Abhishek</h3>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  A passionate DevOps Engineer at Appsquadz Software Pvt Ltd, where I architect and maintain 
-                  cloud-native solutions that power modern applications. My expertise spans across AWS ecosystem, 
-                  containerization technologies, and automated deployment pipelines.
-                </p>
+          ))}
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-12 items-start mb-16">
+          {/* Profile Image */}
+          <div className="lg:col-span-1">
+            <div className="relative max-w-sm mx-auto">
+              <div className="aspect-square rounded-3xl overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20">
+                <img
+                  src={abhImage}
+                  alt="DevOps Engineer Profile"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <p className="text-base text-gray-300 mb-8 leading-relaxed">
+              {/* Floating badges */}
+              <div className="absolute -top-4 -right-4 glass-effect px-3 py-1 rounded-full border border-blue-500/30">
+                <span className="text-xs font-bold text-blue-400">DevOps</span>
+              </div>
+              <div className="absolute -bottom-4 -left-4 glass-effect px-3 py-1 rounded-full border border-emerald-500/30">
+                <span className="text-xs font-bold text-emerald-400">AWS</span>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-full blur-xl floating"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-orange-500/20 rounded-full blur-xl floating-delayed"></div>
+            </div>
+          </div>
+          
+          <div className="lg:col-span-2 space-y-8">
+            <div>
+              <h3 className="text-3xl font-bold text-white mb-6 flex items-center">
+                <span className="mr-3">👋</span> Hello, I'm Abhishek
+              </h3>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                A passionate DevOps Engineer at <span className="text-emerald-400 font-semibold">Appsquadz Software</span>, 
+                where I architect and maintain cloud-native solutions that power modern applications. 
+                My expertise spans across AWS ecosystem, containerization technologies, and automated deployment pipelines.
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-8">
                 I've successfully orchestrated large-scale migrations, including The Indian Express's transition 
                 from GCP to AWS, and built robust CI/CD pipelines that ensure reliable, secure deployments. 
                 With my MCA background and hands-on experience, I'm committed to delivering infrastructure 
                 solutions that scale with business needs.
               </p>
-              
-              <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-600/20 text-blue-400 rounded-full border border-blue-600/30 text-sm font-medium">
-                  AWS Specialist
-                </span>
-                <span className="px-4 py-2 bg-emerald-600/20 text-emerald-400 rounded-full border border-emerald-600/30 text-sm font-medium">
-                  CI/CD Expert
-                </span>
-                <span className="px-4 py-2 bg-orange-600/20 text-orange-400 rounded-full border border-orange-600/30 text-sm font-medium">
-                  Infrastructure Architect
-                </span>
-                <span className="px-4 py-2 bg-purple-600/20 text-purple-400 rounded-full border border-purple-600/30 text-sm font-medium">
-                  Content Creator
-                </span>
-              </div>
             </div>
             
-            <div className="space-y-6 order-3 md:col-span-2">
-              <div className="flex items-start space-x-4 p-6 bg-gray-900/50 rounded-lg border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300">
-                <User className="text-blue-400 mt-1" size={24} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Experience</h3>
-                  <p className="text-gray-300">DevOps Engineer at Appsquadz Software with expertise in AWS, Docker, Kubernetes, and production system management</p>
-                </div>
+            {/* Specialties */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center">
+                <Zap className="mr-3 text-yellow-400" size={24} />
+                Specialties
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { title: "AWS Specialist", desc: "EC2, EKS, Lambda, S3, VPC", color: "blue" },
+                  { title: "CI/CD Expert", desc: "GitHub Actions, Jenkins, ArgoCD", color: "emerald" },
+                  { title: "Infrastructure Architect", desc: "Terraform, CloudFormation, IaC", color: "orange" },
+                  { title: "Container Orchestration", desc: "Docker, Kubernetes, Helm", color: "purple" }
+                ].map((specialty, index) => (
+                  <div key={index} className="p-4 glass-effect rounded-xl border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300">
+                    <h5 className={`text-${specialty.color}-400 font-semibold mb-2`}>{specialty.title}</h5>
+                    <p className="text-gray-400 text-sm">{specialty.desc}</p>
+                  </div>
+                ))}
               </div>
-              
-              <div className="flex items-start space-x-4 p-6 bg-gray-900/50 rounded-lg border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
-                <Target className="text-emerald-400 mt-1" size={24} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Mission</h3>
-                  <p className="text-gray-300">Deliver high-availability, scalable cloud solutions while ensuring security and operational excellence</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4 p-6 bg-gray-900/50 rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300">
-                <Zap className="text-orange-400 mt-1" size={24} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Approach</h3>
-                  <p className="text-gray-300">Infrastructure as Code, automated CI/CD pipelines, and proactive monitoring for system reliability</p>
-                </div>
-              </div>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-center text-gray-400">
+              <MapPin className="mr-3 text-red-400" size={20} />
+              <span>Available Remotely | Open to Opportunities</span>
             </div>
           </div>
+        </div>
+        
+        {/* Education & Certifications */}
+        <div className="mt-20">
+          <h3 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            🎓 Education & Certifications
+          </h3>
           
-          {/* Image Gallery Section */}
-          <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-              Education & Certifications
-            </h3>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300">
-                <img
-                  src="https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=500"
-                  alt="MCA Education"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-semibold mb-1">MCA 2024</h4>
-                    <p className="text-gray-300 text-sm">Abes Engineering College Ghaziabad - 75%</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
-                <img
-                  src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=500"
-                  alt="Bachelor's Degree"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-semibold mb-1">B.Sc 2022</h4>
-                    <p className="text-gray-300 text-sm">University Of Allahabad - 83.5%</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300">
-                <img
-                  src="https://images.pexels.com/photos/5935794/pexels-photo-5935794.jpeg?auto=compress&cs=tinysrgb&w=500"
-                  alt="Certifications"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-semibold mb-1">Certifications</h4>
-                    <p className="text-gray-300 text-sm">Cyber Security, Oracle Database, HackerRank Problem Solving</p>
-                  </div>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group glass-effect-strong p-6 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 card-hover">
+              <div className="text-4xl mb-4">🎓</div>
+              <h4 className="text-white font-bold mb-2">MCA 2024</h4>
+              <p className="text-gray-400 text-sm mb-2">Abes Engineering College Ghaziabad</p>
+              <div className="text-blue-400 font-semibold">75%</div>
             </div>
             
-            {/* Hobbies Section */}
-            <div className="mt-16">
-              <h4 className="text-2xl font-bold text-center mb-8 text-white">Hobbies & Interests</h4>
-              <div className="flex flex-wrap justify-center gap-4">
-                <span className="px-6 py-3 bg-purple-600/20 text-purple-400 rounded-lg border border-purple-600/30">
-                  🧩 Solving Puzzles
-                </span>
-                <span className="px-6 py-3 bg-indigo-600/20 text-indigo-400 rounded-lg border border-indigo-600/30">
-                  ♟️ Playing Chess
-                </span>
-                <span className="px-6 py-3 bg-pink-600/20 text-pink-400 rounded-lg border border-pink-600/30">
-                  🎵 Singing
-                </span>
-              </div>
+            <div className="group glass-effect-strong p-6 rounded-2xl border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300 card-hover">
+              <div className="text-4xl mb-4">📚</div>
+              <h4 className="text-white font-bold mb-2">B.Sc 2022</h4>
+              <p className="text-gray-400 text-sm mb-2">University Of Allahabad</p>
+              <div className="text-emerald-400 font-semibold">83.5%</div>
+            </div>
+            
+            <div className="group glass-effect-strong p-6 rounded-2xl border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 card-hover">
+              <div className="text-4xl mb-4">📜</div>
+              <h4 className="text-white font-bold mb-2">Certifications</h4>
+              <p className="text-gray-400 text-sm">Cyber Security, Oracle Database, HackerRank Problem Solving</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Hobbies Section */}
+        <div className="mt-16">
+          <h4 className="text-2xl font-bold text-center mb-8 text-white flex items-center justify-center">
+            <span className="mr-3">🎯</span> Hobbies & Interests
+          </h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="px-6 py-3 glass-effect rounded-xl border border-purple-600/30 hover:border-purple-500/50 transition-all duration-300 card-hover">
+              <span className="text-purple-400 font-semibold">🧩 Solving Puzzles</span>
+            </div>
+            <div className="px-6 py-3 glass-effect rounded-xl border border-indigo-600/30 hover:border-indigo-500/50 transition-all duration-300 card-hover">
+              <span className="text-indigo-400 font-semibold">♟️ Playing Chess</span>
+            </div>
+            <div className="px-6 py-3 glass-effect rounded-xl border border-pink-600/30 hover:border-pink-500/50 transition-all duration-300 card-hover">
+              <span className="text-pink-400 font-semibold">🎵 Singing</span>
             </div>
           </div>
         </div>
