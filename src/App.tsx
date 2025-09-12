@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
-import LoadingScreen from './components/LoadingScreen';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,10 +10,26 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  useEffect(() => {
+    // Cursor shadow effect
+    const handleMouseMove = (e: MouseEvent) => {
+      const cursor = document.querySelector('.cursor-shadow') as HTMLElement;
+      if (cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <ThemeProvider>
-      <LoadingScreen />
-      <div className="min-h-screen bg-gray-900 dark:bg-gray-900 light:bg-gray-50 text-white dark:text-white light:text-gray-900 scroll-smooth transition-colors duration-500">
+      <div className="min-h-screen bg-gray-900 text-white scroll-smooth transition-colors duration-300 relative">
+        {/* Cursor Shadow */}
+        <div className="cursor-shadow fixed w-20 h-20 pointer-events-none z-50 rounded-full bg-blue-500/10 blur-md transition-opacity duration-300 opacity-80" style={{ transform: 'translate(-50%, -50%)' }}></div>
+        
         <Header />
         <main>
           <Hero />

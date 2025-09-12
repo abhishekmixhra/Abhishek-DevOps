@@ -22,25 +22,18 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full blur opacity-30 animate-pulse"></div>
-            <span className="relative text-sm font-mono text-white bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-purple-400/30 hover:scale-105 transition-all duration-300">
-              💬 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">Get In Touch</span>
+          <div className="inline-block mb-4">
+            <span className="text-sm font-mono text-purple-400 bg-purple-400/10 px-3 py-1 rounded-full border border-purple-400/30">
+              💬 Get In Touch
             </span>
           </div>
-          <div className="inline-block relative mb-4">
-            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-2xl blur opacity-20 animate-tilt"></div>
-            <h2 className="relative text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent animate-gradient-x bg-300% hover:scale-105 transition-transform duration-300">
-              Ready to collaborate?
-            </h2>
-          </div>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-xl blur opacity-10"></div>
-            <p className="relative text-lg text-gray-300 bg-gray-900/30 backdrop-blur-sm p-4 rounded-xl border border-gray-700/30">
-              Let's discuss your next project or explore 
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">opportunities to work together</span>
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white hover:text-blue-400 transition-colors duration-300">
+            Ready to collaborate?
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Let's discuss your next project or explore 
+            <span className="text-blue-400 font-semibold">opportunities to work together</span>
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
