@@ -32,7 +32,7 @@ const Contact = () => {
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Let's discuss your next project or explore 
-            <span className="text-blue-400 font-semibold">opportunities to work together</span>
+            <span className="text-blue-400 font-semibold"> opportunities to work together</span>
           </p>
         </div>
 

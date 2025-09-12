@@ -77,8 +77,8 @@ const Skills = () => {
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Full-stack DevOps expertise from 
-            <span className="text-emerald-400 font-semibold">cloud infrastructure</span> to 
-            <span className="text-blue-400 font-semibold">deployment automation</span>
+            <span className="text-emerald-400 font-semibold"> cloud infrastructure</span> to 
+            <span className="text-blue-400 font-semibold"> deployment automation</span>
           </p>
         </div>
 
