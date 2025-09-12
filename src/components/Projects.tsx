@@ -67,13 +67,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white hover:text-blue-400 transition-colors duration-300">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300">
             🚀 Featured Projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Transforming complex infrastructure challenges into 
             <span className="text-blue-400 font-semibold">scalable, automated solutions</span>
           </p>
@@ -85,7 +85,7 @@ const Projects = () => {
               key={index}
               className="group relative overflow-hidden"
             >
-              <div className="glass-effect-strong p-8 rounded-3xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 card-hover h-full">
+              <div className="bg-white dark:glass-effect-strong p-8 rounded-3xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 card-hover h-full shadow-sm dark:shadow-none">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center">
@@ -101,23 +101,23 @@ const Projects = () => {
                           {project.impact}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-400 transition-colors">
                         {project.title}
                       </h3>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-8 leading-relaxed text-lg">{project.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed text-lg">{project.description}</p>
 
                 {/* Features */}
                 <div className="mb-8">
-                  <h4 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider flex items-center">
+                  <h4 className="text-sm font-bold text-gray-600 dark:text-gray-400 mb-4 uppercase tracking-wider flex items-center">
                     <Zap size={14} className="mr-2" /> Key Features
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
                     {project.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3 text-gray-300 group/feature hover:text-white transition-colors">
+                      <div key={featureIndex} className="flex items-start space-x-3 text-gray-700 dark:text-gray-300 group/feature hover:text-gray-800 dark:hover:text-white transition-colors">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 mt-2 flex-shrink-0"></div>
                         <span className="text-sm leading-relaxed">{feature}</span>
                       </div>
@@ -127,12 +127,12 @@ const Projects = () => {
 
                 {/* Tech Stack */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Tech Stack</h4>
+                  <h4 className="text-sm font-bold text-gray-600 dark:text-gray-400 mb-4 uppercase tracking-wider">Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-4 py-2 text-sm font-semibold bg-gray-800/70 text-gray-300 rounded-lg border border-gray-600/50 hover:border-blue-500/50 hover:text-white transition-all duration-300"
+                        className="px-4 py-2 text-sm font-semibold bg-gray-100 dark:bg-gray-800/70 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-600/50 hover:border-blue-500/50 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
                       >
                         {tech}
                       </span>

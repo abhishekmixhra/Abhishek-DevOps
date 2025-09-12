@@ -69,8 +69,8 @@ const Hero = () => {
       
       {/* Professional Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900"></div>
-        <div className="w-full h-full bg-gradient-to-t from-blue-900/5 via-transparent to-slate-800/10"></div>
+        <div className="w-full h-full bg-gradient-to-br from-gray-100 via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-slate-900"></div>
+        <div className="w-full h-full bg-gradient-to-t from-blue-100/20 to-gray-100/10 dark:from-blue-900/5 dark:via-transparent dark:to-slate-800/10"></div>
         <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08)_0%,transparent_70%)]"></div>
       </div>
 
@@ -96,8 +96,8 @@ const Hero = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-center">
-              <span className="block text-gray-400 text-lg md:text-xl font-normal mb-4">Hey there, I'm</span>
-              <span className="block text-white hover:text-blue-400 transition-colors duration-300">
+              <span className="block text-gray-700 dark:text-gray-400 text-lg md:text-xl font-normal mb-4">Hey there, I'm</span>
+              <span className="block text-gray-900 dark:text-white hover:text-blue-400 transition-colors duration-300">
                 Abhishek Mishra
               </span>
               <span className="block text-2xl md:text-3xl lg:text-4xl mt-4 font-medium">
@@ -106,8 +106,8 @@ const Hero = () => {
               </span>
             </h1>
             
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300">
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed text-center mb-6">
+            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl border border-gray-300/30 dark:border-gray-700/30 hover:border-blue-500/30 transition-all duration-300">
+              <p className="text-lg md:text-xl text-gray-800 dark:text-gray-300 leading-relaxed text-center mb-6">
                 Transforming complex cloud architectures into 
                 <span className="text-blue-400 font-semibold"> scalable, automated solutions</span> that power modern applications
               </p>
@@ -127,7 +127,7 @@ const Hero = () => {
           </div>
           
           <div className="mb-12 animate-fade-in-delay-1">
-            <p className="text-base md:text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed text-center">
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed text-center">
               Passionate about automating infrastructure, optimizing cloud architectures, and delivering reliable
               production systems. Currently driving digital transformation at 
               <span className="text-blue-400 font-semibold hover:text-blue-300 transition-colors duration-300"> Appsquadz Software</span> with expertise

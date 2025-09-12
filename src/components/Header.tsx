@@ -25,13 +25,13 @@ const Header = () => {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-gray-900/95 dark:bg-gray-900/95 light:bg-white/95 backdrop-blur-sm border-b border-gray-800 dark:border-gray-800 light:border-gray-200' 
-        : 'md:bg-transparent bg-gray-900/95 dark:bg-gray-900/95 light:bg-white/95 backdrop-blur-sm border-b border-gray-800 dark:border-gray-800 light:border-gray-200'
+        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800' 
+        : 'md:bg-transparent bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800'
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="text-lg font-bold">
-            <span className="text-white dark:text-white light:text-gray-900">Abhishek</span>
+            <span className="text-gray-800 dark:text-white">Abhishek</span>
             <span className="text-blue-400 ml-2">Mishra</span>
           </div>
           
@@ -41,7 +41,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-white dark:text-white light:text-gray-700 hover:text-blue-400 transition-colors duration-300 font-medium"
+                className="text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300 font-medium"
               >
                 {item.label}
               </a>
@@ -54,6 +54,7 @@ const Header = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-800 dark:text-white"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -67,7 +68,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-2 hover:text-blue-400 transition-colors duration-300"
+                className="block py-2 text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

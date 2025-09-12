@@ -267,6 +267,11 @@
     border: 1px solid rgba(255, 255, 255, 0.125);
   }
 
+  .light .modern-blur {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
   .animate-gradient-x {
     background-size: 300% 300%;
     animation: gradient-x 3s ease infinite;
@@ -303,6 +308,12 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .light .glass-morphism {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
   }
 
   .neon-glow-purple {

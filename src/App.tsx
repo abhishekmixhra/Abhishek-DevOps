@@ -26,7 +26,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gray-900 text-white scroll-smooth transition-colors duration-300 relative">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white scroll-smooth transition-colors duration-300 relative">
         {/* Cursor Shadow */}
         <div className="cursor-shadow fixed w-20 h-20 pointer-events-none z-50 rounded-full bg-blue-500/10 blur-md transition-opacity duration-300 opacity-80" style={{ transform: 'translate(-50%, -50%)' }}></div>
         

@@ -33,7 +33,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 bg-gradient-to-b from-gray-900 via-gray-800/70 to-gray-900 relative scroll-mt-20"
+      className="py-20 bg-white dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800/70 dark:to-gray-900 relative scroll-mt-20"
     >
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
@@ -52,7 +52,7 @@ const Experience = () => {
           </motion.h2>
 
           {/* Timeline Wrapper */}
-          <div className="relative border-l border-gray-700 space-y-12">
+          <div className="relative border-l border-gray-300 dark:border-gray-700 space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -66,14 +66,14 @@ const Experience = () => {
                 <span className="absolute -left-[7px] top-3 w-4 h-4 bg-blue-500 rounded-full shadow-lg"></span>
 
                 {/* Experience Card */}
-                <div className="p-6 md:p-8 bg-gray-900/60 backdrop-blur-xl rounded-xl border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                <div className="p-6 md:p-8 bg-gray-50 dark:bg-gray-900/60 backdrop-blur-xl rounded-xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 shadow-sm dark:shadow-none">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                         {exp.role}
                       </h3>
-                      <div className="flex flex-wrap gap-4 text-gray-300">
+                      <div className="flex flex-wrap gap-4 text-gray-600 dark:text-gray-300">
                         <div className="flex items-center space-x-2">
                           <Building size={16} />
                           <span>{exp.company}</span>
@@ -91,7 +91,7 @@ const Experience = () => {
                   </div>
 
                   {/* Description */}
-                  <ul className="space-y-3 text-gray-300 mb-6">
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
                     {exp.description.map((item, i) => (
                       <li key={i} className="flex items-start space-x-2">
                         <span className="text-emerald-400 mt-1">▶</span>

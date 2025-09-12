@@ -19,7 +19,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
+    <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
@@ -27,10 +27,10 @@ const Contact = () => {
               💬 Get In Touch
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white hover:text-blue-400 transition-colors duration-300">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300">
             Ready to collaborate?
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Let's discuss your next project or explore 
             <span className="text-blue-400 font-semibold">opportunities to work together</span>
           </p>
@@ -42,18 +42,21 @@ const Contact = () => {
             <div className="group relative glass-morphism p-6 rounded-2xl border border-gray-700/30 hover:border-purple-400/50 transition-all duration-500 h-fit hover-lift">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-500"></div>
               <div className="relative">
-                <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300 mb-6">Contact Information</h3>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-purple-400 transition-all duration-300 mb-6">Contact Information</h3>
               
               <div className="space-y-4">
                 <div className="group/card interactive-card p-4 rounded-xl border border-blue-600/30 hover:border-blue-400/80 transition-all duration-300 hover:neon-glow-blue">
-                  <div className="flex items-start space-x-3">
+                  <div className="flex items-start space-x-3 min-w-0">
                     <div className="relative">
                       <div className="absolute inset-0 bg-blue-500/30 rounded blur opacity-0 group-hover/card:opacity-60 transition-opacity duration-300"></div>
                       <Mail className="relative text-blue-400 mt-1 group-hover/card:scale-110 transition-transform duration-300" size={18} />
                     </div>
-                    <div>
-                      <p className="text-white font-semibold text-sm group-hover/card:text-blue-300 transition-colors duration-300">Email</p>
-                      <p className="text-gray-400 text-sm group-hover/card:text-gray-300 transition-colors duration-300">abhishekmishra15102001@gmail.com</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-gray-800 dark:text-white font-semibold text-sm group-hover/card:text-blue-300 transition-colors duration-300">Email</p>
+                      <a href="mailto:abhishekmishra15102001@gmail.com" 
+                         className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm group-hover/card:text-gray-300 transition-colors duration-300 break-all hover:text-blue-400 hover:underline block">
+                        abhishekmishra15102001@gmail.com
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -62,8 +65,8 @@ const Contact = () => {
                   <div className="flex items-start space-x-3">
                     <Phone className="text-emerald-400 mt-1 tech-icon" size={18} />
                     <div>
-                      <p className="text-white font-semibold text-sm">Phone</p>
-                      <p className="text-gray-400 text-sm">+91 79050 68878</p>
+                      <p className="text-gray-800 dark:text-white font-semibold text-sm">Phone</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">+91 79050 68878</p>
                     </div>
                   </div>
                 </div>
@@ -72,8 +75,8 @@ const Contact = () => {
                   <div className="flex items-start space-x-3">
                     <MapPin className="text-orange-400 mt-1 tech-icon" size={18} />
                     <div>
-                      <p className="text-white font-semibold text-sm">Location</p>
-                      <p className="text-gray-400 text-sm">Remote • Global</p>
+                      <p className="text-gray-800 dark:text-white font-semibold text-sm">Location</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Remote • Global</p>
                     </div>
                   </div>
                 </div>
@@ -81,7 +84,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="mt-6">
-                <p className="text-white font-semibold text-sm mb-3">Connect with me</p>
+                <p className="text-gray-800 dark:text-white font-semibold text-sm mb-3">Connect with me</p>
                 <div className="flex space-x-3">
                   <a href="https://linkedin.com/in/abhishek-mishra-14b538221" className="interactive-card p-2 bg-blue-600/20 hover:bg-blue-600 rounded-lg transition-all duration-300 border border-blue-600/30" target="_blank" rel="noopener noreferrer">
                     <Linkedin size={16} className="text-blue-400" />
@@ -104,11 +107,11 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="modern-blur p-8 rounded-2xl border border-gray-700/30">
-              <h3 className="text-xl font-bold text-white mb-6">Send me a message</h3>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">Send me a message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
                     <input 
                       type="text" 
                       id="name" 
@@ -121,7 +124,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
                     <input 
                       type="email" 
                       id="email" 
@@ -135,7 +138,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
                   <textarea 
                     id="message" 
                     name="message" 

@@ -64,7 +64,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 bg-gray-900 scroll-mt-20">
+    <section ref={sectionRef} id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
@@ -72,10 +72,10 @@ const Skills = () => {
               ⚙️ Technical Expertise
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white hover:text-blue-400 transition-colors duration-300">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300">
             Skills & Technologies
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Full-stack DevOps expertise from 
             <span className="text-emerald-400 font-semibold">cloud infrastructure</span> to 
             <span className="text-blue-400 font-semibold">deployment automation</span>
@@ -86,20 +86,20 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-sm dark:shadow-none"
             >
               <div className="flex items-center mb-6">
                 <div className="p-3 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl mr-4">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white">{category.title}</h3>
               </div>
               
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="group">
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors group-hover:font-semibold">
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white transition-colors group-hover:font-semibold">
                         {skill.name}
                       </span>
                       <div className="relative">
@@ -110,8 +110,8 @@ const Skills = () => {
                       </div>
                     </div>
                     
-                    <div className="relative h-3 bg-gray-800/50 rounded-full overflow-hidden group-hover:h-4 transition-all duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full"></div>
+                    <div className="relative h-3 bg-gray-200 dark:bg-gray-800/50 rounded-full overflow-hidden group-hover:h-4 transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-800 rounded-full"></div>
                       <div
                         className={`relative h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out overflow-hidden`}
                         style={{
@@ -140,11 +140,11 @@ const Skills = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 glass-effect rounded-xl border border-gray-700/30 hover:border-emerald-500/50 transition-all duration-300 hover-glow"
+              className="text-center p-6 bg-white dark:glass-effect rounded-xl border border-gray-300 dark:border-gray-700/30 hover:border-emerald-500/50 transition-all duration-300 hover-glow shadow-sm dark:shadow-none"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-3xl font-bold text-gray-800 dark:text-white mb-2">{stat.value}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
             </div>
           ))}
         </div>
