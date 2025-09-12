@@ -10,7 +10,6 @@ const Hero = () => {
     const texts = [
       'DevOps Engineer',
       'Cloud Enthusiast', 
-      'AWS Specialist',
       'CI/CD Expert'
     ];
     
