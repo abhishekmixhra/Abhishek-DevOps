@@ -70,12 +70,19 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-            🚀 Featured Projects
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Transforming complex infrastructure challenges into scalable, automated solutions
-          </p>
+          <div className="inline-block relative mb-6">
+            <div className="absolute -inset-2 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-2xl blur opacity-20 animate-pulse"></div>
+            <h2 className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-400 via-red-500 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-gradient-x bg-300% hover:scale-105 transition-transform duration-300">
+              🚀 Featured Projects
+            </h2>
+          </div>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-xl blur opacity-10"></div>
+            <p className="relative text-xl text-gray-300 bg-gray-900/30 backdrop-blur-sm p-4 rounded-xl border border-gray-700/30">
+              Transforming complex infrastructure challenges into 
+              <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent font-semibold">scalable, automated solutions</span>
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

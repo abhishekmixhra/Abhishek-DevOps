@@ -63,12 +63,19 @@ const About = () => {
     <section id="about" className="py-20 bg-gradient-to-b from-gray-800/50 to-gray-900/50">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-            👨‍💻 About Me
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Transforming complex infrastructure challenges into elegant, scalable solutions
-          </p>
+          <div className="inline-block relative mb-6">
+            <div className="absolute -inset-2 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-2xl blur opacity-20 animate-pulse"></div>
+            <h2 className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-orange-400 bg-clip-text text-transparent animate-gradient-x bg-300% hover:scale-105 transition-transform duration-300">
+              👨‍💻 About Me
+            </h2>
+          </div>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-xl blur opacity-10"></div>
+            <p className="relative text-xl text-gray-300 bg-gray-900/30 backdrop-blur-sm p-4 rounded-xl border border-gray-700/30">
+              Transforming complex infrastructure challenges into 
+              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent font-semibold">elegant, scalable solutions</span>
+            </p>
+          </div>
         </div>
           
         {/* Stats Section */}
@@ -79,12 +86,15 @@ const About = () => {
             { key: 'clients', value: counters.clients, label: 'Client Satisfaction', suffix: '%', icon: Users, color: 'text-orange-400' },
             { key: 'certifications', value: counters.certifications, label: 'Certifications', suffix: '+', icon: Zap, color: 'text-purple-400' }
           ].map((stat) => (
-            <div key={stat.key} className="text-center p-6 glass-effect-strong rounded-2xl border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300 card-hover">
-              <stat.icon className={`${stat.color} mx-auto mb-4`} size={32} />
-              <div className="text-3xl font-bold text-white mb-2">
-                {stat.value}{stat.suffix}
+            <div key={stat.key} className="group relative text-center p-6 glass-morphism rounded-2xl border border-gray-700/30 hover:border-purple-400/50 transition-all duration-500 hover-lift hover:neon-glow-purple">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+              <div className="relative">
+                <stat.icon className={`${stat.color} mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`} size={32} />
+                <div className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2 group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                  {stat.value}{stat.suffix}
+                </div>
+                <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{stat.label}</div>
               </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
             </div>
           ))}
         </div>
