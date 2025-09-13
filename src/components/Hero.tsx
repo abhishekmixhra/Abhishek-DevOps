@@ -67,11 +67,12 @@ const Hero = () => {
         {generateParticles()}
       </div>
       
-      {/* Professional Background */}
+      {/* Enhanced Professional Background for Light Mode */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-gradient-to-br from-gray-100 via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-slate-900"></div>
-        <div className="w-full h-full bg-gradient-to-t from-blue-100/20 to-gray-100/10 dark:from-blue-900/5 dark:via-transparent dark:to-slate-800/10"></div>
-        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08)_0%,transparent_70%)]"></div>
+        <div className="w-full h-full bg-gradient-to-br from-blue-50 via-indigo-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-slate-900"></div>
+        <div className="w-full h-full bg-gradient-to-t from-blue-100/30 to-purple-50/20 dark:from-blue-900/5 dark:via-transparent dark:to-slate-800/10"></div>
+        <div className="w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.12)_0%,transparent_50%)] bg-[radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.10)_0%,transparent_50%)]"></div>
+        <div className="w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%2360A5FA%22%20fill-opacity%3D%220.05%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22/%3E%3C/g%3E%3C/svg%3E')] dark:opacity-0"></div>
       </div>
 
       {/* Enhanced Floating Icons */}
@@ -106,7 +107,7 @@ const Hero = () => {
               </span>
             </h1>
             
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl border border-gray-300/30 dark:border-gray-700/30 hover:border-blue-500/30 transition-all duration-300">
+            <div className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl border border-blue-200/40 dark:border-gray-700/30 hover:border-blue-400/60 shadow-xl shadow-blue-100/50 dark:shadow-none transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/60 dark:hover:border-blue-500/30">
               <p className="text-lg md:text-xl text-gray-800 dark:text-gray-300 leading-relaxed text-center mb-6">
                 Transforming complex cloud architectures into 
                 <span className="text-blue-400 font-semibold"> scalable, automated solutions</span> that power modern applications
@@ -118,7 +119,7 @@ const Hero = () => {
                   'CI/CD Specialist',
                   'Cloud Explorer '
                 ].map((skill, index) => (
-                  <span key={index} className="px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500/30 hover:text-white transition-all duration-300 cursor-pointer">
+                  <span key={index} className="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-500/30 hover:bg-blue-200 dark:hover:bg-blue-500/30 hover:text-blue-800 dark:hover:text-white shadow-md dark:shadow-none transition-all duration-300 cursor-pointer hover:scale-105">
                     {skill}
                   </span>
                 ))}

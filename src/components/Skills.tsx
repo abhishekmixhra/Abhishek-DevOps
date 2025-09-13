@@ -73,7 +73,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-20">
+    <section ref={sectionRef} id="skills" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:bg-gray-900 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
@@ -96,7 +96,7 @@ const Skills = () => {
           {skillCategories.slice(0, 4).map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-sm dark:shadow-none"
+              className="bg-white/90 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-blue-200/40 dark:border-gray-700/30 hover:border-blue-400/70 shadow-xl shadow-blue-100/30 dark:shadow-none hover:shadow-2xl hover:shadow-blue-200/50 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <div className="flex items-center mb-6">
                 <div className="p-3 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl mr-4">
@@ -146,7 +146,7 @@ const Skills = () => {
             {skillCategories.slice(4).map((category, categoryIndex) => (
               <div
                 key={categoryIndex + 4}
-                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-sm dark:shadow-none"
+                className="bg-white/90 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl border border-blue-200/40 dark:border-gray-700/30 hover:border-blue-400/70 shadow-xl shadow-blue-100/30 dark:shadow-none hover:shadow-2xl hover:shadow-blue-200/50 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-6">
                   <div className="p-3 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl mr-4">
@@ -201,7 +201,7 @@ const Skills = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white dark:glass-effect rounded-xl border border-gray-300 dark:border-gray-700/30 hover:border-emerald-500/50 transition-all duration-300 hover-glow shadow-sm dark:shadow-none"
+              className="text-center p-6 bg-white/90 dark:glass-effect rounded-xl border border-emerald-200/40 dark:border-gray-700/30 hover:border-emerald-400/70 shadow-lg shadow-emerald-100/30 dark:shadow-none hover:shadow-xl hover:shadow-emerald-200/50 dark:hover:border-emerald-500/50 transition-all duration-300 hover-glow hover:scale-105 hover:-translate-y-1"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold text-gray-800 dark:text-white mb-2">{stat.value}</div>
