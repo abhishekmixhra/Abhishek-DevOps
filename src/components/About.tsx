@@ -32,10 +32,10 @@ const About = () => {
   useEffect(() => {
     if (statsVisible) {
       const finalStats = {
-        experience: 3,
+        experience: 1,
         projects: 50,
         clients: 100,
-        certifications: 5
+        certifications: 3
       };
       
       const animateCounters = () => {

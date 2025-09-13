@@ -113,10 +113,10 @@ const Hero = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  'AWS Certified',
+                  'Linux Admin',
                   'Kubernetes Expert', 
                   'CI/CD Specialist',
-                  'Cloud Architect'
+                  'Cloud Explorer '
                 ].map((skill, index) => (
                   <span key={index} className="px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500/30 hover:text-white transition-all duration-300 cursor-pointer">
                     {skill}

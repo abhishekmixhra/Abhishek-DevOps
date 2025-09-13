@@ -75,7 +75,7 @@ const Projects = () => {
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-400 max-w-3xl mx-auto">
             Transforming complex infrastructure challenges into 
-            <span className="text-blue-400 font-semibold">scalable, automated solutions</span>
+            <span className="text-blue-400 font-semibold"> scalable, automated solutions</span>
           </p>
         </div>
 
