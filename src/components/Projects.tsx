@@ -1,6 +1,5 @@
 import React from 'react';
 import { Zap, Shield, Cloud, Award } from 'lucide-react';
-import use3DTilt from '../hooks/use3DTilt';
 
 const Projects = () => {
 
@@ -81,29 +80,12 @@ const Projects = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
-            const ProjectCard = () => {
-              const { elementRef, tiltStyles, glareStyles } = use3DTilt({ 
-                maxTilt: 10, 
-                scale: 1.02, 
-                glare: true,
-                maxGlare: 0.2 
-              });
-              
-              return (
-                <div
-                  key={index}
-                  className="group relative overflow-hidden"
-                >
-                  <div 
-                    ref={elementRef}
-                    style={tiltStyles}
-                    className="bg-white dark:glass-effect-strong p-8 rounded-3xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 h-full shadow-sm dark:shadow-none relative"
-                  >
-                    {/* Glare effect */}
-                    <div style={glareStyles} className="rounded-3xl" />
-                    
-                    {/* Project content */}
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden"
+            >
+              <div className="bg-white dark:glass-effect-strong p-8 rounded-3xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 card-hover h-full shadow-sm dark:shadow-none">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center">
@@ -171,15 +153,11 @@ const Projects = () => {
                 </div>
                 */}
 
-                    {/* Hover Effect Overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                  </div>
-                </div>
-              );
-            };
-            
-            return <ProjectCard />;
-          })}
+                {/* Hover Effect Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
