@@ -7,7 +7,7 @@ const Experience = () => {
     {
       role: "DevOps Engineer",
       company: "Appsquadz Software Pvt Ltd",
-      duration: "Jul 2024 - Present",
+      duration: "1+ Years",
       location: "Remote",
       description: [
         "Orchestrated migration of The Indian Express production systems from GCP to AWS, moving workloads from GKE to EKS",

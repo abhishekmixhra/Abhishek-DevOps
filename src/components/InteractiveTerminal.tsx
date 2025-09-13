@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, X, Minimize } from 'lucide-react';
+import { Terminal, X, Minimize, ChevronUp } from 'lucide-react';
 
 interface TerminalLine {
   type: 'command' | 'output' | 'system';
@@ -14,8 +14,35 @@ const InteractiveTerminal: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHiddenOnScroll, setIsHiddenOnScroll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showFloatingIcon, setShowFloatingIcon] = useState(false);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Mobile detection
+  const checkIsMobile = () => {
+    setIsMobile(window.innerWidth < 768); // Tailwind md breakpoint
+  };
+
+  // Scroll handling for mobile
+  const handleScroll = () => {
+    if (!isMobile) return;
+    
+    setIsHiddenOnScroll(true);
+    setShowFloatingIcon(true);
+    
+    // Clear existing timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    
+    // Set timeout to show terminal again after scroll stops
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsHiddenOnScroll(false);
+    }, 2000);
+  };
 
   const demoCommands = [
     {
@@ -206,11 +233,47 @@ const InteractiveTerminal: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Mobile detection and scroll handling
+  useEffect(() => {
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [isMobile]);
+
   if (!isVisible) return null;
+
+  // Show floating icon when hidden on mobile
+  if (isMobile && isHiddenOnScroll && showFloatingIcon) {
+    return (
+      <div className="fixed bottom-4 right-4 z-50">
+        <button
+          onClick={() => {
+            setIsHiddenOnScroll(false);
+            setShowFloatingIcon(false);
+          }}
+          className="bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 animate-pulse"
+        >
+          <Terminal size={20} />
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className={`fixed bottom-4 right-4 z-50 transition-all duration-500 ${
-      isMinimized ? 'w-12 h-12' : 'w-full max-w-2xl h-96 sm:w-96 sm:h-80'
+      isMinimized 
+        ? 'w-12 h-12' 
+        : isMobile 
+        ? (isHiddenOnScroll ? 'opacity-0 pointer-events-none' : 'w-full max-w-xs h-64') 
+        : 'w-full max-w-2xl h-96 sm:w-96 sm:h-80'
     }`}>
       <div className="bg-gray-900 dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-700 dark:border-gray-600 overflow-hidden">
         {/* Terminal Header */}
@@ -244,7 +307,7 @@ const InteractiveTerminal: React.FC = () => {
 
         {/* Terminal Content */}
         {!isMinimized && (
-          <div className="h-64 sm:h-60 flex flex-col">
+          <div className={`${isMobile ? 'h-48' : 'h-64 sm:h-60'} flex flex-col`}>
             <div
               ref={terminalRef}
               className="flex-1 p-4 bg-black dark:bg-gray-900 overflow-y-auto font-mono text-xs sm:text-sm"

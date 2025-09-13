@@ -119,7 +119,7 @@ const Contact = () => {
                       value={formData.name} 
                       onChange={handleChange} 
                       required 
-                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 transition-all duration-300" 
+                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-300" 
                       placeholder="Abhishek Mishra" 
                     />
                   </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                       value={formData.email} 
                       onChange={handleChange} 
                       required 
-                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 transition-all duration-300" 
+                      className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-300" 
                       placeholder="ab@example.com" 
                     />
                   </div>
@@ -146,7 +146,7 @@ const Contact = () => {
                     onChange={handleChange} 
                     required 
                     rows={6} 
-                    className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-white placeholder-gray-500 resize-none transition-all duration-300" 
+                    className="w-full px-4 py-3 modern-blur border border-gray-600/50 rounded-xl focus:border-blue-500/80 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none transition-all duration-300" 
                     placeholder="Tell me about your project, collaboration ideas, or just say hello..."
                   />
                 </div>
