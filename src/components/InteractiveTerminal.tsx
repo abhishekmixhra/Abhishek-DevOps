@@ -28,20 +28,10 @@ const InteractiveTerminal: React.FC = () => {
 
   // Scroll handling for mobile
   const handleScroll = () => {
-    if (!isMobile) return;
+    if (!isMobile || isHiddenOnScroll) return;
     
     setIsHiddenOnScroll(true);
     setShowFloatingIcon(true);
-    
-    // Clear existing timeout
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-    
-    // Set timeout to show terminal again after scroll stops
-    scrollTimeoutRef.current = setTimeout(() => {
-      setIsHiddenOnScroll(false);
-    }, 2000);
   };
 
   const demoCommands = [
