@@ -133,7 +133,7 @@ const Skills = () => {
         {/* Achievement Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { value: "3+", label: "Years Experience", icon: "⏰" },
+            { value: "1+", label: "Years Experience", icon: "⏰" },
             { value: "50+", label: "Projects Completed", icon: "🚀" },
             { value: "10+", label: "AWS Services", icon: "☁️" },
             { value: "100%", label: "Client Satisfaction", icon: "⭐" }
