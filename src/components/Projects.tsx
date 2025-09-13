@@ -67,7 +67,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 scroll-mt-20">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white hover:text-blue-400 transition-colors duration-300">
@@ -85,7 +85,7 @@ const Projects = () => {
               key={index}
               className="group relative overflow-hidden"
             >
-              <div className="bg-white/90 dark:glass-effect-strong p-8 rounded-3xl border border-blue-200/40 dark:border-gray-700/50 hover:border-blue-400/70 shadow-xl shadow-blue-100/40 dark:shadow-none hover:shadow-2xl hover:shadow-blue-200/60 dark:hover:border-blue-500/50 transition-all duration-500 card-hover h-full hover:-translate-y-2">
+              <div className="bg-white dark:glass-effect-strong p-8 rounded-3xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 card-hover h-full shadow-sm dark:shadow-none">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center">
@@ -132,7 +132,7 @@ const Projects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-4 py-2 text-sm font-semibold bg-blue-50 dark:bg-gray-800/70 text-blue-700 dark:text-gray-300 rounded-lg border border-blue-200 dark:border-gray-600/50 hover:border-blue-400/70 hover:bg-blue-100 hover:text-blue-800 dark:hover:border-blue-500/50 dark:hover:text-white shadow-md dark:shadow-none hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 hover:scale-105"
+                        className="px-4 py-2 text-sm font-semibold bg-gray-100 dark:bg-gray-800/70 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-600/50 hover:border-blue-500/50 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
                       >
                         {tech}
                       </span>

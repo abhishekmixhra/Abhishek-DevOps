@@ -60,7 +60,7 @@ const About = () => {
   }, [statsVisible]);
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900">
+    <section id="about" className="py-20 bg-white dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6 hover:text-blue-400 transition-colors duration-300">
@@ -80,7 +80,7 @@ const About = () => {
             { key: 'clients', value: counters.clients, label: 'Client Satisfaction', suffix: '%', icon: Users, color: 'text-orange-400' },
             { key: 'certifications', value: counters.certifications, label: 'Certifications', suffix: '+', icon: Zap, color: 'text-purple-400' }
           ].map((stat) => (
-            <div key={stat.key} className="text-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-blue-200/40 dark:border-gray-700/30 hover:border-blue-400/60 shadow-lg shadow-blue-100/30 dark:shadow-none hover:shadow-xl hover:shadow-blue-200/40 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+            <div key={stat.key} className="text-center p-6 bg-gray-50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105">
               <stat.icon className={`${stat.color} mx-auto mb-4`} size={32} />
               <div className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
                 {stat.value}{stat.suffix}
@@ -145,7 +145,7 @@ const About = () => {
                   { title: "Infrastructure Architect", desc: "Terraform, CloudFormation, IaC", color: "orange" },
                   { title: "Container Orchestration", desc: "Docker, Kubernetes, Helm", color: "purple" }
                 ].map((specialty, index) => (
-                  <div key={index} className="p-4 bg-white/70 dark:bg-transparent dark:glass-effect rounded-xl border border-blue-200/30 dark:border-gray-700/30 hover:border-blue-400/50 shadow-md shadow-blue-100/20 dark:shadow-none hover:shadow-lg hover:shadow-blue-200/30 dark:hover:border-blue-500/30 transition-all duration-300 hover:scale-105">
+                  <div key={index} className="p-4 bg-gray-50 dark:bg-transparent dark:glass-effect rounded-xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/30 transition-all duration-300">
                     <h5 className={`text-${specialty.color}-400 font-semibold mb-2`}>{specialty.title}</h5>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">{specialty.desc}</p>
                   </div>
@@ -168,21 +168,21 @@ const About = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white/80 dark:glass-effect-strong p-6 rounded-2xl border border-blue-200/40 dark:border-gray-700/50 hover:border-blue-400/60 shadow-lg shadow-blue-100/30 dark:shadow-none hover:shadow-xl hover:shadow-blue-200/40 dark:hover:border-blue-500/50 transition-all duration-300 card-hover">
+            <div className="group bg-gray-50 dark:glass-effect-strong p-6 rounded-2xl border border-gray-300 dark:border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 card-hover">
               <div className="text-4xl mb-4">🎓</div>
               <h4 className="text-gray-800 dark:text-white font-bold mb-2">MCA 2024</h4>
               <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">Abes Engineering College Ghaziabad</p>
               <div className="text-blue-400 font-semibold">75%</div>
             </div>
             
-            <div className="group bg-white/80 dark:glass-effect-strong p-6 rounded-2xl border border-emerald-200/40 dark:border-gray-700/50 hover:border-emerald-400/60 shadow-lg shadow-emerald-100/30 dark:shadow-none hover:shadow-xl hover:shadow-emerald-200/40 dark:hover:border-emerald-500/50 transition-all duration-300 card-hover">
+            <div className="group bg-gray-50 dark:glass-effect-strong p-6 rounded-2xl border border-gray-300 dark:border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300 card-hover">
               <div className="text-4xl mb-4">📚</div>
               <h4 className="text-gray-800 dark:text-white font-bold mb-2">B.Sc 2022</h4>
               <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">University Of Allahabad</p>
               <div className="text-emerald-400 font-semibold">83.5%</div>
             </div>
             
-            <div className="group bg-white/80 dark:glass-effect-strong p-6 rounded-2xl border border-orange-200/40 dark:border-gray-700/50 hover:border-orange-400/60 shadow-lg shadow-orange-100/30 dark:shadow-none hover:shadow-xl hover:shadow-orange-200/40 dark:hover:border-orange-500/50 transition-all duration-300 card-hover">
+            <div className="group bg-gray-50 dark:glass-effect-strong p-6 rounded-2xl border border-gray-300 dark:border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 card-hover">
               <div className="text-4xl mb-4">📜</div>
               <h4 className="text-gray-800 dark:text-white font-bold mb-2">Certifications</h4>
               <p className="text-gray-600 dark:text-gray-400 text-sm">Cyber Security, Oracle Database, HackerRank Problem Solving</p>
@@ -196,14 +196,14 @@ const About = () => {
             <span className="mr-3">🎯</span> Hobbies & Interests
           </h4>
           <div className="flex flex-wrap justify-center gap-4">
-            <div className="px-6 py-3 bg-purple-50/80 dark:glass-effect rounded-xl border border-purple-300 dark:border-purple-600/30 hover:border-purple-500/80 shadow-lg shadow-purple-100/20 dark:shadow-none hover:shadow-xl hover:shadow-purple-200/30 dark:hover:border-purple-500/50 transition-all duration-300 card-hover hover:scale-105">
-              <span className="text-purple-600 dark:text-purple-400 font-semibold">🧩 Solving Puzzles</span>
+            <div className="px-6 py-3 bg-gray-50 dark:glass-effect rounded-xl border border-purple-300 dark:border-purple-600/30 hover:border-purple-500/50 transition-all duration-300 card-hover">
+              <span className="text-purple-400 font-semibold">🧩 Solving Puzzles</span>
             </div>
-            <div className="px-6 py-3 bg-indigo-50/80 dark:glass-effect rounded-xl border border-indigo-300 dark:border-indigo-600/30 hover:border-indigo-500/80 shadow-lg shadow-indigo-100/20 dark:shadow-none hover:shadow-xl hover:shadow-indigo-200/30 dark:hover:border-indigo-500/50 transition-all duration-300 card-hover hover:scale-105">
-              <span className="text-indigo-600 dark:text-indigo-400 font-semibold">♟️ Playing Chess</span>
+            <div className="px-6 py-3 bg-gray-50 dark:glass-effect rounded-xl border border-indigo-300 dark:border-indigo-600/30 hover:border-indigo-500/50 transition-all duration-300 card-hover">
+              <span className="text-indigo-400 font-semibold">♟️ Playing Chess</span>
             </div>
-            <div className="px-6 py-3 bg-pink-50/80 dark:glass-effect rounded-xl border border-pink-300 dark:border-pink-600/30 hover:border-pink-500/80 shadow-lg shadow-pink-100/20 dark:shadow-none hover:shadow-xl hover:shadow-pink-200/30 dark:hover:border-pink-500/50 transition-all duration-300 card-hover hover:scale-105">
-              <span className="text-pink-600 dark:text-pink-400 font-semibold">🎵 Singing</span>
+            <div className="px-6 py-3 bg-gray-50 dark:glass-effect rounded-xl border border-pink-300 dark:border-pink-600/30 hover:border-pink-500/50 transition-all duration-300 card-hover">
+              <span className="text-pink-400 font-semibold">🎵 Singing</span>
             </div>
           </div>
         </div>
