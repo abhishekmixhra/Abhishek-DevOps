@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Cloud, Shield, GitBranch, Container 
 } from 'lucide-react';
+import InteractiveSkillRadar from './InteractiveSkillRadar';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,6 +47,18 @@ const Skills = () => {
     }
   ];
 
+  // Radar chart data
+  const radarSkills = [
+    { name: 'AWS', value: 95, color: '#ff9500', category: 'Cloud' },
+    { name: 'Kubernetes', value: 88, color: '#3b82f6', category: 'Container' },
+    { name: 'Docker', value: 90, color: '#0ea5e9', category: 'Container' },
+    { name: 'Terraform', value: 87, color: '#a855f7', category: 'IaC' },
+    { name: 'GitHub Actions', value: 92, color: '#1f2937', category: 'CI/CD' },
+    { name: 'Prometheus', value: 85, color: '#f97316', category: 'Monitoring' },
+    { name: 'SonarQube', value: 82, color: '#06b6d4', category: 'Security' },
+    { name: 'Jenkins', value: 80, color: '#4f46e5', category: 'CI/CD' }
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -80,6 +93,19 @@ const Skills = () => {
             <span className="text-emerald-400 font-semibold"> cloud infrastructure</span> to 
             <span className="text-blue-400 font-semibold"> deployment automation</span>
           </p>
+        </div>
+
+        {/* Interactive Radar Chart */}
+        <div className="mb-16">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-300 dark:border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 shadow-sm dark:shadow-none">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Interactive Skills Radar</h3>
+              <p className="text-gray-600 dark:text-gray-400">Hover over points for detailed information</p>
+            </div>
+            <div className="flex justify-center">
+              <InteractiveSkillRadar skills={radarSkills} size={400} />
+            </div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 mb-16">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Code2, Terminal, Zap, Sparkles, Rocket, Coffee, Heart } from 'lucide-react';
+import { ChevronDown, Code2, Terminal, Zap } from 'lucide-react';
+import InteractiveCodeEditor from './InteractiveCodeEditor';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
@@ -153,6 +154,32 @@ const Hero = () => {
             >
               👨‍💻 About Me
             </a>
+          </div>
+          
+          {/* Interactive Code Editor Preview */}
+          <div className="mt-16 animate-fade-in-delay-3 max-w-4xl mx-auto">
+            <div className="text-center mb-6">
+              <span className="text-sm font-mono text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/30 mb-4 inline-block">
+                🔥 Live DevOps Code Demo
+              </span>
+            </div>
+            <InteractiveCodeEditor 
+              initialCode={`#!/bin/bash
+# AWS S3 Bucket Creation Script
+aws s3api create-bucket \\
+  --bucket my-deployment-artifacts \\
+  --region us-east-1
+
+# Enable versioning
+aws s3api put-bucket-versioning \\
+  --bucket my-deployment-artifacts \\
+  --versioning-configuration Status=Enabled
+
+echo "✅ S3 bucket ready for deployments!"`}
+              title="devops-deploy.sh"
+              language="bash"
+              runnable={true}
+            />
           </div>
         </div>
       </div>
